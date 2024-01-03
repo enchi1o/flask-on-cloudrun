@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login/Register</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: fit-content;
+            margin: 0;
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        form {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .tabs {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .tabs li {
+            margin-right: 10px;
+            padding: 10px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        img {
+            width: 150px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul class="tabs">
+            <li><a href="#loginTab" onclick="showTab('loginTab')">Login</a></li>
+            <li><a href="#registerTab" onclick="showTab('registerTab')">Register</a></li>
+        </ul>
+
+        <div id="loginTab" class="tab-content active">
+            <form id="loginForm" method="POST" action="/login">
+                <h1>Login</h1>
+                <label for="username">Username:</label><br>
+                <input type="text" id="username" name="username" required><br>
+                <label for="password">Password:</label><br>
+                <input type="password" id="password" name="password" required><br><br>
+                <input type="submit" value="Login"><br><br>
+                <img src="image/cloud-run.png"
+                    onerror="this.onerror=null; this.src='https://cdn0.iconfinder.com/data/icons/shift-free/32/Error-512.png'"
+                    alt="image">
+                <p class="version">Version {{ version }}</p>
+            </form>
+        </div>
+
+        <div id="registerTab" class="tab-content">
+            <form id="registerForm" method="POST" action="/register">
+                <h1>Register</h1>
+                <label for="reg_username">Username:</label><br>
+                <input type="text" id="reg_username" name="username" required><br>
+                <label for="reg_password">Password:</label><br>
+                <input type="password" id="reg_password" name="password" required><br><br>
+                <input type="submit" value="Register"><br><br>
+                <img src="image/cloud-run.png"
+                    onerror="this.onerror=null; this.src='https://cdn0.iconfinder.com/data/icons/shift-free/32/Error-512.png'"
+                    alt="image">
+                <p class="version">Version {{ version }}</p>
+            </form>
+        </div>
+    </div>
+    <script>
+        function showTab(tabId) {
+            var tabs = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(function (tab) {
+                if (tab.id === tabId) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "flask-on-cloudrun"
+version = "0.1.0"
+description = ""
+authors = ["羅恩圻 <jacky.lo@program.com.tw>"]
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = "^3.11"
+flask = "^3.0.0"
+sqlalchemy = "^2.0.24"
+flask-sqlalchemy = "^3.1.1"
+pymysql = "^1.1.0"
+gunicorn = "^21.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
